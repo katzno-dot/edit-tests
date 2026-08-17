@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The MYP, Explained — A Guide for Teachers New to the IB Middle Years Programme</title>
+<meta name="description" content="A clear, practical onboarding guide to the IB Middle Years Programme (MYP) for teachers new to the IB. Big picture first, then structures, terminology, and classroom implications.">
+<style>
+/* =========================================================
+   THEME: Rich Mid-Century Modern
+   Warm cream paper, walnut ink, atomic-age teal / mustard /
+   burnt orange / olive accents. Calm, editorial, professional.
+   No external fonts or dependencies. All system stacks.
+   ========================================================= */
+:root{
+  /* Type */
+  --font-display:"Futura","Century Gothic","Avenir Next","Trebuchet MS",sans-serif;
+  --font-body:"Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+
+  /* Core palette */
+  --paper:#f4ecd9;          /* warm cream background */
+  --paper-2:#efe6cf;        /* slightly deeper cream */
+  --surface:#fbf6e9;        /* card surface */
+  --surface-raised:#fffdf6; /* raised card */
+  --ink:#2c2723;            /* walnut/charcoal text */
+  --ink-soft:#5c5347;       /* muted text */
+  --line:#d9cdb0;           /* hairline rules */
+
+  /* Accents (atomic age) */
+  --teal:#1f6f6b;           /* primary structural */
+  --teal-deep:#155350;
+  --teal-tint:#dcebe6;
+  --mustard:#cf9412;        /* ochre */
+  --mustard-deep:#a9760a;
+  --mustard-tint:#f6e9c4;
+  --orange:#bf5a36;         /* burnt orange / terracotta */
+  --orange-deep:#9c4527;
+  --orange-tint:#f3ddd0;
+  --olive:#6f7a3c;          /* avocado/olive */
+  --olive-deep:#56602c;
+  --olive-tint:#e6e7cd;
+  --clay:#a44a3f;           /* deep clay for warnings/myths */
+
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 1px 0 rgba(44,39,35,.04), 0 10px 26px -16px rgba(44,39,35,.45);
+  --shadow-sm:0 6px 16px -12px rgba(44,39,35,.5);
+  --maxw:1180px;
+  --content:760px;
+  --header-h:60px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(31,111,107,.05), transparent 40%),
+    radial-gradient(circle at 88% 22%, rgba(207,148,18,.06), transparent 38%);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Reading progress ---------- */
+#progress{
+  position:fixed;top:0;left:0;height:4px;width:0%;
+  background:linear-gradient(90deg,var(--teal),var(--mustard),var(--orange));
+  z-index:200;transition:width .12s ease-out;
+}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:120;height:var(--header-h);
+  display:flex;align-items:center;gap:14px;
+  padding:0 18px;
+  background:rgba(244,236,217,.9);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .brand{
+  font-family:var(--font-display);font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;font-size:.82rem;color:var(--teal-deep);
+  display:flex;align-items:center;gap:10px;
+}
+.brand .mark{
+  width:22px;height:22px;flex:none;border-radius:50%;
+  background:
+    conic-gradient(from 0deg,var(--mustard) 0 25%,var(--orange) 0 50%,var(--teal) 0 75%,var(--olive) 0 100%);
+}
+.topbar .spacer{flex:1;}
+.topbar button.menu-toggle{
+  font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em;
+  font-size:.72rem;font-weight:700;
+  background:var(--teal);color:#fff;border:none;border-radius:999px;
+  padding:8px 16px;cursor:pointer;
+}
+.topbar button.menu-toggle:hover{background:var(--teal-deep);}
+
+/* ---------- Layout shell ---------- */
+.shell{
+  max-width:var(--maxw);margin:0 auto;
+  display:grid;grid-template-columns:260px 1fr;gap:40px;
+  padding:0 24px;
+}
+@media(max-width:980px){
+  .shell{grid-template-columns:1fr;gap:0;}
+}
+
+/* ---------- Table of contents ---------- */
+nav.toc{
+  position:sticky;top:calc(var(--header-h) + 16px);
+  align-self:start;max-height:calc(100vh - var(--header-h) - 32px);
+  overflow-y:auto;padding:18px 4px 40px 0;
+  font-size:.86rem;
+}
+nav.toc h2{
+  font-family:var(--font-display);text-transform:uppercase;letter-spacing:.12em;
+  font-size:.68rem;color:var(--ink-soft);margin:0 0 12px;
+}
+nav.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc;}
+nav.toc li{counter-increment:toc;margin:1px 0;}
+nav.toc a{
+  display:flex;gap:10px;align-items:baseline;
+  text-decoration:none;color:var(--ink-soft);
+  padding:6px 10px;border-radius:8px;border-left:3px solid transparent;
+  line-height:1.3;
+}
+nav.toc a::before{
+  content:counter(toc,decimal-leading-zero);
+  font-family:var(--font-display);font-size:.66rem;font-weight:700;
+  color:var(--mustard-deep);flex:none;min-width:20px;
+}
+nav.toc a:hover{background:var(--surface);color:var(--ink);}
+nav.toc a.active{
+  background:var(--teal-tint);color:var(--teal-deep);
+  border-left-color:var(--teal);font-weight:700;
+}
+
+/* mobile TOC behaves as a drawer */
+@media(max-width:980px){
+  nav.toc{
+    position:fixed;inset:var(--header-h) 0 0 auto;width:min(320px,86vw);
+    background:var(--surface);border-left:1px solid var(--line);
+    box-shadow:var(--shadow);padding:22px 16px 60px;z-index:130;
+    transform:translateX(105%);transition:transform .26s ease;max-height:none;
+  }
+  nav.toc.open{transform:translateX(0);}
+}
+
+/* ---------- Main column ---------- */
+main{min-width:0;padding-bottom:80px;}
+.section{
+  scroll-margin-top:calc(var(--header-h) + 18px);
+  padding:46px 0 12px;border-top:1px solid var(--line);
+}
+.section:first-of-type{border-top:none;}
+.kicker{
+  font-family:var(--font-display);text-transform:uppercase;letter-spacing:.16em;
+  font-size:.68rem;font-weight:700;color:var(--orange-deep);
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;
+}
+.kicker .num{
+  font-size:.66rem;background:var(--ink);color:var(--paper);
+  border-radius:5px;padding:2px 7px;letter-spacing:.05em;
+}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;color:var(--ink);}
+.section h2{font-size:clamp(1.5rem,3.4vw,2.05rem);margin:.1em 0 .5em;letter-spacing:-.01em;}
+.section h3{font-size:1.15rem;margin:1.7em 0 .5em;color:var(--teal-deep);letter-spacing:.005em;}
+.section h4{font-size:.95rem;margin:1.2em 0 .4em;}
+p{margin:.7em 0;max-width:var(--content);}
+.lead{font-size:1.12rem;color:var(--ink-soft);max-width:var(--content);}
+a{color:var(--teal-deep);}
+strong{color:var(--ink);}
+ul,ol{max-width:var(--content);padding-left:1.25em;}
+li{margin:.3em 0;}
+.small{font-size:.86rem;color:var(--ink-soft);}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(135deg,var(--teal-deep),var(--teal) 62%);
+  color:#fbf6e9;border-radius:0 0 24px 24px;
+  padding:64px 24px 72px;margin-bottom:8px;
+}
+.hero .inner{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2;}
+.hero .eyebrow{
+  font-family:var(--font-display);text-transform:uppercase;letter-spacing:.2em;
+  font-size:.72rem;color:var(--mustard-tint);margin-bottom:14px;
+}
+.hero h1{
+  color:#fff;font-size:clamp(2rem,6vw,3.4rem);max-width:16ch;letter-spacing:-.015em;
+  margin:0 0 .35em;
+}
+.hero p{color:rgba(251,246,233,.92);font-size:1.12rem;max-width:60ch;}
+.hero .who{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;
+}
+.hero .who span{
+  font-family:var(--font-display);font-size:.72rem;letter-spacing:.05em;
+  text-transform:uppercase;font-weight:700;
+  background:rgba(251,246,233,.14);border:1px solid rgba(251,246,233,.3);
+  color:#fff;padding:6px 12px;border-radius:999px;
+}
+/* atomic starburst + boomerangs */
+.hero .burst{
+  position:absolute;right:-60px;top:-40px;width:280px;height:280px;opacity:.5;z-index:1;
+  background:
+    repeating-conic-gradient(from 0deg,transparent 0 9deg,rgba(207,148,18,.5) 9deg 11deg);
+  border-radius:50%;mask:radial-gradient(circle,transparent 26%,#000 28%);
+  -webkit-mask:radial-gradient(circle,transparent 26%,#000 28%);
+}
+.hero .dot{
+  position:absolute;border-radius:50%;z-index:1;opacity:.85;
+}
+.hero .dot.d1{width:54px;height:54px;background:var(--orange);right:120px;bottom:40px;}
+.hero .dot.d2{width:26px;height:26px;background:var(--mustard);right:80px;bottom:96px;}
+.hero .dot.d3{width:16px;height:16px;border:3px solid var(--olive-tint);background:transparent;right:200px;bottom:30px;}
+
+/* ---------- Callout boxes ---------- */
+.callout{
+  border-radius:var(--radius);padding:18px 20px;margin:18px 0;max-width:var(--content);
+  border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);
+}
+.callout .label{
+  font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;
+  font-size:.68rem;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:6px;
+}
+.callout .label .ic{width:22px;height:22px;flex:none;border-radius:6px;display:grid;place-items:center;
+  font-size:.8rem;color:#fff;font-family:var(--font-serif);font-weight:700;}
+.callout p:last-child{margin-bottom:0;}
+.callout p:first-of-type{margin-top:0;}
+
+.callout.big-idea{background:var(--teal-tint);border-color:#b9d8d0;}
+.callout.big-idea .label{color:var(--teal-deep);}
+.callout.big-idea .ic{background:var(--teal);}
+
+.callout.translation{background:var(--mustard-tint);border-color:#e7d49a;}
+.callout.translation .label{color:var(--mustard-deep);}
+.callout.translation .ic{background:var(--mustard-deep);}
+
+.callout.example{background:var(--olive-tint);border-color:#cdd0a3;}
+.callout.example .label{color:var(--olive-deep);}
+.callout.example .ic{background:var(--olive);}
+
+.callout.note{background:var(--orange-tint);border-color:#e3c2b1;}
+.callout.note .label{color:var(--orange-deep);}
+.callout.note .ic{background:var(--orange);}
+
+.callout.upcoming{background:#efe9f0;border-color:#d9cbdb;}
+.callout.upcoming .label{color:#6b4b73;}
+.callout.upcoming .ic{background:#7a567f;}
+
+/* status pills */
+.pill{display:inline-block;font-family:var(--font-display);font-size:.64rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:999px;
+  vertical-align:middle;}
+.pill.current{background:var(--teal);color:#fff;}
+.pill.upcoming{background:#7a567f;color:#fff;}
+.pill.tbc{background:var(--ink);color:var(--paper);}
+
+/* ---------- Cards / grids ---------- */
+.grid{display:grid;gap:16px;margin:20px 0;}
+.grid.g2{grid-template-columns:repeat(2,1fr);}
+.grid.g3{grid-template-columns:repeat(3,1fr);}
+.grid.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:820px){.grid.g3,.grid.g4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.grid.g2,.grid.g3,.grid.g4{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--surface-raised);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow-sm);
+}
+.card h4{margin:.1em 0 .35em;color:var(--ink);font-size:.98rem;}
+.card p{margin:.25em 0;font-size:.9rem;color:var(--ink-soft);}
+.card .tag{font-family:var(--font-display);font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mustard-deep);}
+.card.accent-teal{border-top:4px solid var(--teal);}
+.card.accent-mustard{border-top:4px solid var(--mustard);}
+.card.accent-orange{border-top:4px solid var(--orange);}
+.card.accent-olive{border-top:4px solid var(--olive);}
+
+/* numbered chip */
+.chip{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;
+  background:var(--ink);color:var(--paper);font-family:var(--font-display);font-weight:700;
+  font-size:.78rem;flex:none;}
+
+/* ---------- Tables ---------- */
+.table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--line);}
+table{border-collapse:collapse;width:100%;background:var(--surface-raised);font-size:.9rem;min-width:520px;}
+caption{caption-side:top;text-align:left;font-size:.82rem;color:var(--ink-soft);padding:0 0 8px;}
+th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);}
+thead th{background:var(--ink);color:var(--paper);font-family:var(--font-display);
+  font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
+tbody tr:nth-child(even){background:var(--surface);}
+tbody th{font-weight:700;color:var(--teal-deep);background:var(--teal-tint);}
+
+/* ---------- Diagrams ---------- */
+.diagram{margin:24px 0;display:flex;justify-content:center;}
+.figure-cap{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-top:8px;font-style:italic;}
+
+/* concentric learner-at-center */
+.onion{position:relative;width:300px;height:300px;}
+.onion .ring{position:absolute;border-radius:50%;display:grid;place-items:start center;
+  font-family:var(--font-display);font-size:.62rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;padding-top:9px;text-align:center;}
+.onion .r1{inset:0;background:var(--olive-tint);color:var(--olive-deep);}
+.onion .r2{inset:36px;background:var(--mustard-tint);color:var(--mustard-deep);}
+.onion .r3{inset:80px;background:var(--orange-tint);color:var(--orange-deep);}
+.onion .core{inset:128px;background:var(--teal);color:#fff;border-radius:50%;position:absolute;
+  display:grid;place-items:center;text-align:center;font-family:var(--font-display);
+  font-weight:700;font-size:.72rem;line-height:1.2;padding:8px;}
+
+/* statement-of-inquiry builder */
+.soi{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:18px 0;max-width:var(--content);}
+.soi .blk{flex:1 1 150px;border-radius:var(--radius-sm);padding:12px 14px;color:#fff;}
+.soi .b1{background:var(--teal);}
+.soi .b2{background:var(--mustard-deep);}
+.soi .b3{background:var(--orange);}
+.soi .blk small{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em;
+  font-size:.6rem;opacity:.9;display:block;margin-bottom:3px;}
+.soi .plus{display:grid;place-items:center;font-family:var(--font-display);font-weight:700;
+  font-size:1.3rem;color:var(--ink-soft);flex:none;}
+.soi-result{background:var(--surface);border:1px dashed var(--teal);border-radius:var(--radius-sm);
+  padding:12px 14px;max-width:var(--content);font-style:italic;color:var(--ink);}
+
+/* assessment bars */
+.crit{max-width:var(--content);margin:16px 0;}
+.crit .row{display:flex;align-items:center;gap:12px;margin:7px 0;}
+.crit .cname{font-family:var(--font-display);font-weight:700;font-size:.78rem;width:128px;flex:none;
+  color:var(--teal-deep);}
+.crit .bar{flex:1;height:18px;background:var(--paper-2);border-radius:999px;overflow:hidden;
+  border:1px solid var(--line);}
+.crit .fill{height:100%;border-radius:999px;}
+.crit .val{font-family:var(--font-display);font-weight:700;font-size:.78rem;width:46px;text-align:right;flex:none;}
+
+/* ATL wheel as pills */
+.atl-wheel{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0;}
+.atl-wheel .seg{border-radius:var(--radius);padding:14px 16px;color:#fff;min-width:150px;flex:1 1 150px;}
+.atl-wheel .seg h4{color:#fff;margin:0 0 4px;font-size:.92rem;}
+.atl-wheel .seg p{color:rgba(255,255,255,.92);font-size:.78rem;margin:0;}
+
+/* timeline */
+.timeline{position:relative;margin:24px 0;padding-left:30px;max-width:var(--content);}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+  background:linear-gradient(var(--teal),var(--mustard),var(--orange));border-radius:3px;}
+.tl-item{position:relative;margin:0 0 22px;}
+.tl-item::before{content:"";position:absolute;left:-25px;top:4px;width:14px;height:14px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--teal);}
+.tl-item.up::before{border-color:#7a567f;}
+.tl-date{font-family:var(--font-display);font-weight:700;font-size:.74rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--orange-deep);}
+.tl-item h4{margin:.15em 0 .25em;}
+.tl-item p{margin:.15em 0;font-size:.9rem;}
+
+/* myth/reality */
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;margin:14px 0;max-width:var(--content);box-shadow:var(--shadow-sm);}
+@media(max-width:560px){.myth{grid-template-columns:1fr;}}
+.myth .m,.myth .r{padding:14px 16px;font-size:.9rem;}
+.myth .m{background:var(--orange-tint);}
+.myth .r{background:var(--teal-tint);}
+.myth .h{font-family:var(--font-display);font-weight:700;font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;display:block;margin-bottom:5px;}
+.myth .m .h{color:var(--clay);}
+.myth .r .h{color:var(--teal-deep);}
+
+/* glossary */
+.glossary{max-width:var(--content);margin:18px 0;}
+.glossary dt{font-family:var(--font-display);font-weight:700;color:var(--teal-deep);
+  margin-top:14px;font-size:.92rem;}
+.glossary dd{margin:2px 0 0;color:var(--ink-soft);font-size:.92rem;}
+
+/* details / progressive disclosure */
+details{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);
+  margin:12px 0;max-width:var(--content);overflow:hidden;}
+details summary{cursor:pointer;padding:13px 16px;font-family:var(--font-display);font-weight:700;
+  font-size:.88rem;color:var(--teal-deep);list-style:none;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{content:"+";font-size:1.2rem;color:var(--mustard-deep);transition:transform .2s;}
+details[open] summary::after{content:"–";}
+details .body{padding:0 16px 14px;}
+details .body p:first-child{margin-top:0;}
+
+/* checklist */
+.checklist{max-width:var(--content);margin:18px 0;list-style:none;padding:0;}
+.checklist li{display:flex;gap:12px;align-items:flex-start;background:var(--surface-raised);
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;margin:8px 0;
+  box-shadow:var(--shadow-sm);}
+.checklist input{margin-top:5px;width:18px;height:18px;accent-color:var(--teal);flex:none;cursor:pointer;}
+.checklist label{cursor:pointer;font-size:.94rem;}
+.checklist label b{color:var(--ink);}
+.checklist li.done label{color:var(--ink-soft);}
+.checklist li.done label b{text-decoration:line-through;}
+.check-progress{font-family:var(--font-display);font-weight:700;font-size:.8rem;color:var(--teal-deep);
+  background:var(--teal-tint);border:1px solid #b9d8d0;border-radius:999px;padding:6px 14px;display:inline-block;}
+
+/* big numbered list */
+.steps{list-style:none;counter-reset:st;padding:0;max-width:var(--content);}
+.steps li{counter-increment:st;position:relative;padding:4px 0 4px 44px;margin:10px 0;}
+.steps li::before{content:counter(st);position:absolute;left:0;top:2px;width:30px;height:30px;
+  border-radius:50%;background:var(--mustard);color:#fff;font-family:var(--font-display);font-weight:700;
+  display:grid;place-items:center;font-size:.9rem;}
+
+/* divider with motif */
+.motif{display:flex;align-items:center;gap:14px;margin:30px 0 6px;color:var(--mustard-deep);}
+.motif::before,.motif::after{content:"";height:1px;background:var(--line);flex:1;}
+.motif span{font-family:var(--font-serif);font-style:italic;font-size:.9rem;color:var(--ink-soft);}
+
+/* back to top */
+#toTop{position:fixed;right:18px;bottom:18px;z-index:90;width:46px;height:46px;border-radius:50%;
+  background:var(--ink);color:var(--paper);border:none;cursor:pointer;font-size:1.1rem;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .25s;}
+#toTop.show{opacity:1;pointer-events:auto;}
+
+/* footer */
+footer{background:var(--ink);color:#d8cdb8;margin-top:60px;padding:40px 24px 50px;}
+footer .inner{max-width:var(--maxw);margin:0 auto;}
+footer h3{color:#fff;font-size:1rem;}
+footer a{color:var(--mustard-tint);}
+footer .small{color:#a89c84;}
+
+/* scrim for mobile drawer */
+#scrim{position:fixed;inset:0;background:rgba(44,39,35,.4);z-index:125;opacity:0;pointer-events:none;
+  transition:opacity .25s;}
+#scrim.show{opacity:1;pointer-events:auto;}
+@media(min-width:981px){#scrim{display:none;}.menu-toggle{display:none;}}
+
+/* ---------- Print ---------- */
+@media print{
+  :root{--paper:#fff;}
+  body{background:#fff;font-size:11pt;color:#000;}
+  #progress,.topbar,nav.toc,#toTop,#scrim,.menu-toggle{display:none !important;}
+  .shell{display:block;max-width:none;padding:0;}
+  .hero{background:#fff;color:#000;border:none;padding:0 0 12pt;}
+  .hero h1,.hero p{color:#000;}
+  .hero .burst,.hero .dot,.hero .who{display:none;}
+  .section{break-inside:avoid;border-top:1px solid #bbb;padding:14pt 0 4pt;}
+  .card,.callout,.myth,details,.table-wrap{break-inside:avoid;box-shadow:none;}
+  details{border:1px solid #bbb;} details summary::after{content:"";}
+  details .body{display:block !important;}
+  a{color:#000;text-decoration:underline;}
+}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <span class="brand"><span class="mark" aria-hidden="true"></span>MYP, Explained</span>
+  <span class="spacer"></span>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="toc">Contents</button>
+</header>
+
+<div id="scrim"></div>
+
+<section class="hero">
+  <div class="burst" aria-hidden="true"></div>
+  <span class="dot d1" aria-hidden="true"></span>
+  <span class="dot d2" aria-hidden="true"></span>
+  <span class="dot d3" aria-hidden="true"></span>
+  <div class="inner">
+    <p class="eyebrow">A practical onboarding guide</p>
+    <h1>The IB Middle Years Programme, explained</h1>
+    <p>A clear, calm walkthrough for educators who are new to the IB. We start with the big picture, then move gently into the structures, vocabulary, and what it all actually means in your classroom.</p>
+    <div class="who" aria-label="Who this guide is for">
+      <span>Classroom teachers</span>
+      <span>Specialist teachers</span>
+      <span>Teaching assistants</span>
+      <span>Coordinators</span>
+      <span>School leaders</span>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+
+  <!-- ============ TABLE OF CONTENTS ============ -->
+  <nav class="toc" id="toc" aria-label="Table of contents">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#s1">What the MYP is</a></li>
+      <li><a href="#s2">Purpose &amp; philosophy</a></li>
+      <li><a href="#s3">The learner at the center</a></li>
+      <li><a href="#s4">Agency, voice &amp; choice</a></li>
+      <li><a href="#s5">The IB Learner Profile</a></li>
+      <li><a href="#s6">Inquiry-based learning</a></li>
+      <li><a href="#s7">Interdisciplinary learning</a></li>
+      <li><a href="#s8">The six Global Contexts</a></li>
+      <li><a href="#s9">Concepts &amp; understanding</a></li>
+      <li><a href="#s10">Approaches to Learning</a></li>
+      <li><a href="#s11">Action in the MYP</a></li>
+      <li><a href="#s12">Assessment in the MYP</a></li>
+      <li><a href="#s13">The MYP Projects</a></li>
+      <li><a href="#s14">Planning &amp; collaboration</a></li>
+      <li><a href="#s15">What this means in class</a></li>
+      <li><a href="#s16">Quick classroom examples</a></li>
+      <li><a href="#s17">Common misconceptions</a></li>
+      <li><a href="#s18">Terminology glossary</a></li>
+      <li><a href="#s19">MYP 2026 &amp; what's coming</a></li>
+      <li><a href="#s20">What to focus on first</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- How to use -->
+    <div class="callout note" style="margin-top:34px;">
+      <div class="label"><span class="ic">i</span> How to read this guide</div>
+      <p>Work top to bottom the first time — each section builds on the last. After that, treat it as a reference: jump to any section from the contents menu. Look for three coloured boxes throughout: <strong>Big Idea</strong> (the heart of a concept), <strong>Teacher Translation</strong> (what it means for you), and <strong>Classroom Example</strong> (what it looks like in practice).</p>
+    </div>
+
+    <!-- 1 -->
+    <section class="section" id="s1">
+      <div class="kicker"><span class="num">01</span> Start here</div>
+      <h2>What the MYP is</h2>
+      <p class="lead">The Middle Years Programme (MYP) is a <strong>curriculum framework</strong> from the International Baccalaureate (IB) for students aged 11&ndash;16. The IB adopted it in 1994 as the second of its four programmes.</p>
+
+      <p>The most important idea to grasp first: the MYP is <strong>not a syllabus that tells you exactly what content to teach</strong>. In most subjects it deliberately does not prescribe specific content. Instead, it gives you a structure &mdash; concepts, contexts, skills, and assessment principles &mdash; that you wrap around your own national, state, or school curriculum.</p>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>The MYP is a <strong>framework for how students learn</strong>, not a fixed list of what they must memorize. Your existing subject content lives <em>inside</em> the framework.</p>
+      </div>
+
+      <h3>The shape of the programme</h3>
+      <ul>
+        <li><strong>Ages 11&ndash;16</strong>, designed as a <strong>five-year programme</strong> (often called MYP 1&ndash;5). Where five years isn't possible, schools may run a shorter route with IB authorization.</li>
+        <li><strong>Eight subject groups</strong>, with at least <strong>50 teaching hours per subject group, per year</strong>.</li>
+        <li>Offered only by authorized <strong>IB World Schools</strong>.</li>
+        <li>Sits in the middle of the IB continuum: <strong>PYP &rarr; MYP &rarr; DP / CP</strong>. It prepares students for the Diploma Programme (DP) and Career-related Programme (CP), but is also valuable on its own.</li>
+      </ul>
+
+      <h3>The eight subject groups</h3>
+      <div class="grid g4">
+        <div class="card accent-teal"><h4>Language &amp; Literature</h4><p>The student's strongest language(s).</p></div>
+        <div class="card accent-mustard"><h4>Language Acquisition</h4><p>Additional language learning.</p></div>
+        <div class="card accent-orange"><h4>Individuals &amp; Societies</h4><p>Humanities &amp; social sciences.</p></div>
+        <div class="card accent-olive"><h4>Sciences</h4><p>Biology, chemistry, physics, integrated.</p></div>
+        <div class="card accent-mustard"><h4>Mathematics</h4><p>Number, algebra, geometry, statistics.</p></div>
+        <div class="card accent-teal"><h4>Arts</h4><p>Visual, performing, media arts.</p></div>
+        <div class="card accent-olive"><h4>Physical &amp; Health Education</h4><p>Movement, wellbeing, health.</p></div>
+        <div class="card accent-orange"><h4>Design</h4><p>Digital &amp; product design thinking.</p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>Whatever subject you teach, you already belong to one of these eight groups. The MYP doesn't replace your subject &mdash; it gives you a shared language and a shared way of planning that connects your subject to the other seven.</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="section" id="s2">
+      <div class="kicker"><span class="num">02</span> The why</div>
+      <h2>The purpose and philosophy of the MYP</h2>
+      <p class="lead">Everything in the MYP flows from the IB mission: developing inquiring, knowledgeable, and caring young people who help build a better, more peaceful world through intercultural understanding and respect.</p>
+
+      <p>For early adolescents specifically, the MYP aims to develop students who are <strong>creative, critical, and reflective thinkers</strong>. It emphasizes intellectual challenge and encourages students to make connections between their studies and the real world &mdash; the years when young people are forming their identity and need learning that feels relevant and meaningful.</p>
+
+      <h3>The philosophy in plain terms</h3>
+      <div class="grid g2">
+        <div class="card accent-teal"><span class="tag">Holistic</span><h4>The whole learner</h4><p>Intellectual, personal, emotional, and social growth &mdash; not just academic results.</p></div>
+        <div class="card accent-mustard"><span class="tag">International-mindedness</span><h4>A wider view</h4><p>Understanding that other people, with their differences, can also be right.</p></div>
+        <div class="card accent-orange"><span class="tag">Conceptual</span><h4>Deep over shallow</h4><p>Learning organized around big transferable ideas, not isolated facts.</p></div>
+        <div class="card accent-olive"><span class="tag">Connected</span><h4>Real-world relevance</h4><p>Learning placed in authentic contexts and linked across subjects.</p></div>
+      </div>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>The MYP isn't asking <em>"What facts should students know?"</em> first. It asks <em>"What kind of thinker and person are we helping this young learner become?"</em> &mdash; and designs learning backward from there.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="section" id="s3">
+      <div class="kicker"><span class="num">03</span> Who it's for</div>
+      <h2>The learner at the center</h2>
+      <p class="lead">In the MYP, the student &mdash; not the teacher and not the textbook &mdash; sits at the centre of the design. The whole framework is arranged <em>around</em> the learner.</p>
+
+      <p>A useful way to picture this is as a set of nested layers. The learner is in the middle. Around them sit the tools the MYP uses to make learning meaningful: <strong>concepts</strong>, <strong>global contexts</strong>, and <strong>approaches to learning</strong>. All of this is held together by inquiry and aimed at the IB Learner Profile.</p>
+
+      <div class="diagram" role="img" aria-label="Concentric circles showing the learner at the center, surrounded by approaches to learning, then concepts, then global contexts.">
+        <div class="onion">
+          <div class="ring r1">Global contexts</div>
+          <div class="ring r2">Concepts</div>
+          <div class="ring r3">Approaches to learning</div>
+          <div class="core">THE<br>LEARNER</div>
+        </div>
+      </div>
+      <p class="figure-cap">A simplified view of the MYP model: the learner at the centre, surrounded by the elements that frame their learning.</p>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>Your role shifts from "deliverer of content" toward "designer and facilitator of inquiry." You still teach &mdash; explicitly and often &mdash; but the goal is to set up experiences where students actively build understanding, with you guiding, modelling, and giving feedback.</p>
+      </div>
+
+      <p>Because the learner is central, <strong>inclusion and differentiation matter</strong>. The MYP expects teaching to be accessible to a wide range of learners, and it values knowing where each student is in their development &mdash; socially and emotionally as well as academically.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="section" id="s4">
+      <div class="kicker"><span class="num">04</span> Ownership</div>
+      <h2>Agency, voice, choice, and ownership</h2>
+      <p class="lead">"Agency" is one of the most important words in current IB language. It means students having genuine influence over their own learning &mdash; and seeing themselves as capable of acting on the world.</p>
+
+      <p>Agency is usually described through three linked ideas:</p>
+      <div class="grid g3">
+        <div class="card accent-teal"><h4>Voice</h4><p>Students' ideas, questions, and perspectives are heard and taken seriously in the learning.</p></div>
+        <div class="card accent-mustard"><h4>Choice</h4><p>Students make meaningful decisions &mdash; about topics, methods, products, or how they show learning.</p></div>
+        <div class="card accent-orange"><h4>Ownership</h4><p>Students take responsibility for their progress, reflect honestly, and set their own goals.</p></div>
+      </div>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>Agency isn't "let students do whatever they want." It's the deliberate, scaffolded handing-over of decisions and responsibility so students grow into self-directed, reflective learners.</p>
+      </div>
+
+      <div class="callout example">
+        <div class="label"><span class="ic">▶</span> Classroom Example</div>
+        <p>In a science unit on energy, instead of assigning one fixed lab, you let students choose <em>which</em> renewable source to investigate and <em>how</em> to present their findings (report, model, infographic, or short film), while you hold the concept and the assessment criteria constant. Same learning target, real choice.</p>
+      </div>
+
+      <p class="small">Self-directed learning is also a strong theme in the MYP's upcoming enhancement &mdash; see <a href="#s19">Section 19</a>.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="section" id="s5">
+      <div class="kicker"><span class="num">05</span> The aim</div>
+      <h2>The IB Learner Profile</h2>
+      <p class="lead">The Learner Profile is the IB's shared description of the kind of person every IB programme tries to develop. It is the same across the PYP, MYP, DP, and CP &mdash; the common "north star."</p>
+
+      <p>There are <strong>ten attributes</strong>. They are not graded, but they are the purpose behind the academics. You'll see schools name and celebrate them constantly.</p>
+
+      <div class="grid g3">
+        <div class="card accent-teal"><h4>Inquirers</h4><p>Curious; love learning.</p></div>
+        <div class="card accent-mustard"><h4>Knowledgeable</h4><p>Explore ideas of significance.</p></div>
+        <div class="card accent-orange"><h4>Thinkers</h4><p>Reason critically and creatively.</p></div>
+        <div class="card accent-olive"><h4>Communicators</h4><p>Express themselves confidently.</p></div>
+        <div class="card accent-mustard"><h4>Principled</h4><p>Act with integrity and fairness.</p></div>
+        <div class="card accent-teal"><h4>Open-minded</h4><p>Value other perspectives.</p></div>
+        <div class="card accent-orange"><h4>Caring</h4><p>Show empathy and compassion.</p></div>
+        <div class="card accent-olive"><h4>Risk-takers</h4><p>Approach challenge with courage.</p></div>
+        <div class="card accent-teal"><h4>Balanced</h4><p>Care for mind, body, and others.</p></div>
+        <div class="card accent-mustard"><h4>Reflective</h4><p>Consider their own learning.</p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>You don't need a separate "Learner Profile lesson." Instead, notice and name these attributes as they show up naturally: <em>"That was real risk-taking, trying a method you weren't sure about."</em> Over time this language becomes part of your classroom culture.</p>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="section" id="s6">
+      <div class="kicker"><span class="num">06</span> How students learn</div>
+      <h2>Inquiry-based learning</h2>
+      <p class="lead">Inquiry is the MYP's central way of learning. Rather than starting with answers to memorize, learning starts with <strong>questions worth exploring</strong>.</p>
+
+      <p>Inquiry doesn't mean "no teaching" or pure discovery. It means structuring units so students investigate, make sense of evidence, and build understanding &mdash; with plenty of guidance, modelling, and direct instruction along the way.</p>
+
+      <h3>The engine of an MYP unit: the statement of inquiry</h3>
+      <p>Each unit is anchored by a <strong>statement of inquiry</strong> &mdash; a single sentence that fuses a concept with a real-world context to express a transferable, "so-what" understanding.</p>
+
+      <div class="soi" aria-hidden="true">
+        <div class="blk b1"><small>Concept(s)</small>Identity &amp; perspective</div>
+        <div class="plus">+</div>
+        <div class="blk b2"><small>Global context</small>Personal &amp; cultural expression</div>
+        <div class="plus">=</div>
+        <div class="blk b3"><small>Understanding</small>A transferable idea</div>
+      </div>
+      <div class="soi-result">Example statement of inquiry: <strong>"The stories communities tell shape how individuals understand their own identity."</strong></div>
+
+      <h3>Three kinds of inquiry question</h3>
+      <p>Teachers usually plan questions at three levels to drive the unit:</p>
+      <div class="grid g3">
+        <div class="card accent-teal"><span class="tag">Factual</span><h4>What / when / how?</h4><p>Knowledge and content. <em>"What techniques did the artist use?"</em></p></div>
+        <div class="card accent-mustard"><span class="tag">Conceptual</span><h4>Why / how connected?</h4><p>Transferable ideas. <em>"How does form communicate meaning?"</em></p></div>
+        <div class="card accent-orange"><span class="tag">Debatable</span><h4>To what extent?</h4><p>No single answer. <em>"Is some art more 'valid' than others?"</em></p></div>
+      </div>
+
+      <div class="callout example">
+        <div class="label"><span class="ic">▶</span> Classroom Example</div>
+        <p>You open a maths unit not with "Today: the Pythagorean theorem," but with: <em>"How do builders make sure a corner is truly square?"</em> Students investigate, hit the need for the theorem, and learn it as a tool that answers a real question.</p>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="section" id="s7">
+      <div class="kicker"><span class="num">07</span> Connecting subjects</div>
+      <h2>Interdisciplinary learning</h2>
+
+      <div class="callout note">
+        <div class="label"><span class="ic">!</span> A quick terminology note</div>
+        <p>You may hear the word <strong>"transdisciplinary."</strong> That term belongs to the IB's <strong>Primary Years Programme (PYP)</strong>. In the MYP, the equivalent connected-learning approach is called <strong>interdisciplinary learning</strong>. They are related ideas but not the same thing &mdash; using the right word matters in IB conversations.</p>
+      </div>
+
+      <p class="lead">Interdisciplinary learning means combining the knowledge and skills of <strong>two or more subject groups</strong> to create a new, integrated understanding that neither subject could reach alone.</p>
+
+      <p>It is a formal MYP requirement: students engage in <strong>at least one collaboratively planned interdisciplinary unit in each year</strong> of the programme. There are even dedicated interdisciplinary assessment criteria, and (for schools doing the IB's external assessment) an on-screen Interdisciplinary Learning examination.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Three ways subjects can relate &mdash; and where each belongs.</caption>
+          <thead><tr><th>Approach</th><th>What it means</th><th>Where it lives</th></tr></thead>
+          <tbody>
+            <tr><th>Disciplinary</th><td>Learning within one subject's tools and ways of thinking.</td><td>Everyday MYP teaching</td></tr>
+            <tr><th>Interdisciplinary</th><td>Two+ subjects integrated to build understanding neither reaches alone.</td><td><strong>MYP</strong> (≥1 unit per year)</td></tr>
+            <tr><th>Transdisciplinary</th><td>Learning organized around real-world themes that cut across all subjects.</td><td><strong>PYP</strong> (primary years)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout example">
+        <div class="label"><span class="ic">▶</span> Classroom Example</div>
+        <p>Science and Individuals &amp; Societies co-plan a unit on water scarcity. Students use scientific data on the water cycle <em>and</em> geographic analysis of population and policy to propose realistic solutions &mdash; reaching an understanding that pure science or pure geography couldn't give them.</p>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="section" id="s8">
+      <div class="kicker"><span class="num">08</span> Real-world lenses</div>
+      <h2>The six Global Contexts</h2>
+
+      <div class="callout note">
+        <div class="label"><span class="ic">!</span> Terminology note</div>
+        <p>The "six transdisciplinary themes" are a feature of the <strong>PYP</strong>. The MYP's equivalent is the <strong>six Global Contexts</strong>. The IB describes them as <em>developed from, and extending,</em> the PYP's transdisciplinary themes &mdash; so they're cousins, but the MYP uses the global-context language.</p>
+      </div>
+
+      <p class="lead">Global contexts answer the question every adolescent silently asks: <em>"Why are we learning this?"</em> They place subject content inside an authentic, real-world setting. Each MYP unit selects <strong>one</strong> global context to focus the inquiry.</p>
+
+      <div class="grid g2">
+        <div class="card accent-teal"><h4>Identities &amp; relationships</h4><p>Who am I? Who are we? Belonging, health, relationships, what it means to be human.</p></div>
+        <div class="card accent-mustard"><h4>Orientation in space &amp; time</h4><p>Where and when? Journeys, turning points, histories, our place in the cosmos.</p></div>
+        <div class="card accent-orange"><h4>Personal &amp; cultural expression</h4><p>How do we express ourselves? Creativity, beauty, culture, meaning.</p></div>
+        <div class="card accent-olive"><h4>Scientific &amp; technical innovation</h4><p>How does the world work? Discovery, invention, and its impact on people and environments.</p></div>
+        <div class="card accent-teal"><h4>Globalization &amp; sustainability</h4><p>How is everything connected? Systems, interdependence, and shared decisions.</p></div>
+        <div class="card accent-mustard"><h4>Fairness &amp; development</h4><p>What are the consequences of our choices? Rights, justice, access, and equity.</p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>Pick the context that gives your unit genuine real-world purpose, then keep coming back to it &mdash; not just as a hook on day one. The context should shape your inquiry questions and the way students apply what they learn. Over the programme, students should experience all six.</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="section" id="s9">
+      <div class="kicker"><span class="num">09</span> Big transferable ideas</div>
+      <h2>Concepts and conceptual understanding</h2>
+      <p class="lead">Concepts are the MYP's "big ideas" &mdash; powerful, transferable mental tools that organize learning and let understanding travel from one topic (or subject) to another.</p>
+
+      <p>The MYP uses two layers of concepts:</p>
+      <div class="grid g2">
+        <div class="card accent-teal">
+          <h4>Key concepts (16)</h4>
+          <p>Broad, interdisciplinary ideas shared across the whole programme. Each unit usually centres on one.</p>
+        </div>
+        <div class="card accent-mustard">
+          <h4>Related concepts</h4>
+          <p>More specific ideas tied to a particular subject group, which sharpen and deepen the key concept within that discipline.</p>
+        </div>
+      </div>
+
+      <h3>The 16 key concepts</h3>
+      <div class="grid g4">
+        <div class="card"><p>Aesthetics</p></div><div class="card"><p>Change</p></div>
+        <div class="card"><p>Communication</p></div><div class="card"><p>Communities</p></div>
+        <div class="card"><p>Connections</p></div><div class="card"><p>Creativity</p></div>
+        <div class="card"><p>Culture</p></div><div class="card"><p>Development</p></div>
+        <div class="card"><p>Form</p></div><div class="card"><p>Global interactions</p></div>
+        <div class="card"><p>Identity</p></div><div class="card"><p>Logic</p></div>
+        <div class="card"><p>Perspective</p></div><div class="card"><p>Relationships</p></div>
+        <div class="card"><p>Systems</p></div><div class="card"><p>Time, place &amp; space</p></div>
+      </div>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>Facts are the "stuff" of a lesson; concepts are what the facts are <em>for</em>. A student who understands "systems" in biology can transfer that thinking to economics, ecosystems, or government &mdash; that transfer is the whole point.</p>
+      </div>
+
+      <div class="callout upcoming">
+        <div class="label"><span class="ic">◆</span> Upcoming change</div>
+        <p>Under the MYP's planned enhancement, "key" and "related" concepts are proposed to be combined into a single list called <strong>"specified concepts"</strong> for each subject group, with schools still able to add their own. <span class="pill upcoming">In development</span> Treat the exact terminology as <em>to be confirmed by official IB guidance</em> &mdash; see <a href="#s19">Section 19</a>.</p>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="section" id="s10">
+      <div class="kicker"><span class="num">10</span> Learning how to learn</div>
+      <h2>Approaches to Learning (ATL)</h2>
+      <p class="lead">Approaches to Learning are the skills that help students "learn how to learn." They run through every subject and are the connective tissue of the whole programme.</p>
+
+      <p>The IB groups ATL into <strong>five skill categories</strong>, which are broken down further into more specific skill clusters:</p>
+
+      <div class="atl-wheel" role="img" aria-label="The five ATL skill categories: Communication, Social, Self-management, Research, and Thinking.">
+        <div class="seg" style="background:var(--teal)"><h4>Communication</h4><p>Exchanging information through interaction and literacy.</p></div>
+        <div class="seg" style="background:var(--mustard-deep)"><h4>Social</h4><p>Collaboration &mdash; working well with others.</p></div>
+        <div class="seg" style="background:var(--orange)"><h4>Self-management</h4><p>Organization, affective (managing state &amp; focus), and reflection.</p></div>
+        <div class="seg" style="background:var(--olive)"><h4>Research</h4><p>Information literacy and media literacy.</p></div>
+        <div class="seg" style="background:var(--teal-deep)"><h4>Thinking</h4><p>Critical thinking, creative thinking, and transfer.</p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>Don't try to teach all five everywhere. For each unit, choose a small number of ATL skills that the work genuinely demands, then <strong>teach them explicitly</strong> &mdash; model the skill, give students chances to practise, and have them reflect. ATL skills aren't graded as a separate subject, but they shape performance in every subject and in the projects.</p>
+      </div>
+
+      <div class="callout example">
+        <div class="label"><span class="ic">▶</span> Classroom Example</div>
+        <p>Before a group research task, you spend ten minutes explicitly teaching one <em>research</em> skill (evaluating source reliability) and one <em>social</em> skill (assigning and rotating roles). You name them, model them, and ask students to reflect on them afterward.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="section" id="s11">
+      <div class="kicker"><span class="num">11</span> Learning that does something</div>
+      <h2>Action in the MYP</h2>
+      <p class="lead">The MYP expects learning to lead somewhere. Its form of meaningful action is called <strong>Service as Action</strong> &mdash; students applying what they learn to make a positive difference.</p>
+
+      <p>Action grows naturally out of inquiry: when students understand something real, they're moved to respond to it. Service as Action is woven through the programme and is formalized in the MYP Projects (see <a href="#s13">Section 13</a>).</p>
+
+      <h3>Action takes many forms</h3>
+      <p>It does <strong>not</strong> have to be a big charity event. The IB recognizes a wide range of legitimate responses, including direct service, indirect service, advocacy, and research &mdash; and increasingly, relationship-building, dialogue, and reflection.</p>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>The aim isn't "doing good deeds for points." It's helping students see themselves as people whose learning gives them the capacity &mdash; and responsibility &mdash; to act thoughtfully in their communities.</p>
+      </div>
+
+      <div class="callout upcoming">
+        <div class="label"><span class="ic">◆</span> Upcoming change</div>
+        <p>The MYP enhancement proposes making a link to <strong>community engagement</strong> an expectation in <em>every</em> unit, with broader recognition that engagement can happen through dialogue, relationships, and reflection &mdash; not only direct action. <span class="pill upcoming">In development</span></p>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="section" id="s12">
+      <div class="kicker"><span class="num">12</span> How learning is judged</div>
+      <h2>Assessment in the MYP</h2>
+      <p class="lead">MYP assessment is <strong>criterion-related</strong>: you judge a student's work against published descriptors of quality &mdash; <em>not</em> against other students, and <em>not</em> by adjusting to the class average.</p>
+
+      <h3>How it works</h3>
+      <ul>
+        <li>Each subject group has <strong>four assessment criteria (A, B, C, D)</strong>. The names differ by subject (e.g. "Knowing and understanding," "Communicating").</li>
+        <li>Each criterion is marked on a <strong>0&ndash;8 scale</strong> against fixed level descriptors, in bands (1&ndash;2, 3&ndash;4, 5&ndash;6, 7&ndash;8).</li>
+        <li>You apply the descriptors using <strong>"best-fit"</strong> professional judgement &mdash; the descriptor that, overall, best matches the work.</li>
+        <li>Final reporting grades come from looking <strong>across several tasks</strong>, not averaging one number.</li>
+      </ul>
+
+      <div class="crit" aria-label="Illustration of four criteria each marked out of 8, totalling 32.">
+        <div class="row"><span class="cname">Criterion A</span><span class="bar"><span class="fill" style="width:75%;background:var(--teal)"></span></span><span class="val">6/8</span></div>
+        <div class="row"><span class="cname">Criterion B</span><span class="bar"><span class="fill" style="width:87.5%;background:var(--mustard-deep)"></span></span><span class="val">7/8</span></div>
+        <div class="row"><span class="cname">Criterion C</span><span class="bar"><span class="fill" style="width:62.5%;background:var(--orange)"></span></span><span class="val">5/8</span></div>
+        <div class="row"><span class="cname">Criterion D</span><span class="bar"><span class="fill" style="width:75%;background:var(--olive)"></span></span><span class="val">6/8</span></div>
+      </div>
+      <p class="figure-cap">Four criteria, each out of 8 &rarr; a total out of 32, converted to a final 1&ndash;7 grade using IB boundaries.</p>
+
+      <div class="callout note">
+        <div class="label"><span class="ic">!</span> The single most common mistake</div>
+        <p>The four criterion scores are <strong>not percentages</strong>, and you do <strong>not</strong> simply average them to get the grade. A "6" describes a level of quality. The total out of 32 is converted to a 1&ndash;7 grade using IB grade boundaries, informed by your best-fit judgement across the body of work.</p>
+      </div>
+
+      <h3>Fairness across schools</h3>
+      <p>The IB keeps a "7" meaning the same everywhere through <strong>standardization</strong> (teachers within a school aligning their judgements) and <strong>moderation</strong> (the IB checking samples). There are also shared <strong>command terms</strong> (like <em>analyse</em>, <em>evaluate</em>, <em>justify</em>) that define exactly what a task is asking for.</p>
+
+      <h3>External validation: eAssessment</h3>
+      <p>Schools may choose the IB's external <strong>eAssessment</strong> in the final year, which is the route to an <strong>IB-validated MYP Certificate</strong>. It combines on-screen examinations (in subjects such as Language &amp; Literature, Individuals &amp; Societies, Sciences, Mathematics, and Interdisciplinary Learning) with ePortfolios (for areas such as Language Acquisition, Arts, Design, and Physical &amp; Health Education). Schools that don't take eAssessment may instead award a school-based certificate or a Record of Participation, which are <em>not</em> IB-validated.</p>
+
+      <div class="callout upcoming">
+        <div class="label"><span class="ic">◆</span> Upcoming change</div>
+        <p>The IB is continuing a gradual shift toward more <strong>on-screen</strong> assessment, with more components expected to move on-screen over time. Exact subject lists and dates are <span class="pill tbc">to be confirmed</span> by official IB guidance.</p>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="section" id="s13">
+      <div class="kicker"><span class="num">13</span> The signature projects</div>
+      <h2>The MYP Projects</h2>
+
+      <div class="callout note">
+        <div class="label"><span class="ic">!</span> Terminology note</div>
+        <p>The <strong>"Exhibition"</strong> is the culminating experience of the <strong>PYP</strong>. The MYP's culminating, student-directed work is the <strong>Personal Project</strong> (with the <strong>Community Project</strong> earlier in the programme). These are the MYP's equivalent signature projects.</p>
+      </div>
+
+      <p class="lead">The MYP Projects are where agency, ATL skills, inquiry, and action all come together in one extended, independent piece of work that students largely drive themselves.</p>
+
+      <div class="grid g2">
+        <div class="card accent-teal">
+          <span class="tag">Final year</span>
+          <h4>The Personal Project</h4>
+          <p><strong>Required of every student in the final year (MYP 5).</strong> A sustained, self-directed exploration: the student sets a goal, creates a product or outcome, keeps a process journal, and writes a report reflecting on the journey.</p>
+          <p>Assessed against published criteria &mdash; currently <strong>Planning</strong>, <strong>Applying skills</strong>, and <strong>Reflecting</strong> &mdash; and externally moderated by the IB.</p>
+        </div>
+        <div class="card accent-mustard">
+          <span class="tag">Years 3 or 4</span>
+          <h4>The Community Project</h4>
+          <p>For schools whose programme ends before MYP 5 (or as an earlier milestone), often done in small groups. It focuses on <strong>service and a genuine community need</strong>.</p>
+          <p>Assessed against four criteria: <strong>Investigating, Planning, Taking action, Reflecting</strong>.</p>
+        </div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>Even if you never supervise a project, your everyday teaching prepares students for it. Every time you make ATL skills explicit &mdash; goal-setting, research, time management, reflection &mdash; you're building the exact capacities the Personal Project will demand.</p>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="section" id="s14">
+      <div class="kicker"><span class="num">14</span> Working together</div>
+      <h2>Planning and collaboration</h2>
+      <p class="lead">The MYP is a collaborative programme. Teachers plan together, share a common language, and articulate learning vertically (year to year) and horizontally (across subjects).</p>
+
+      <h3>The MYP unit planner</h3>
+      <p>Units are documented on a shared <strong>unit planner</strong>. It's built through "backward design" &mdash; you decide the understanding and assessment first, then design the learning. A planner typically pulls together:</p>
+      <div class="grid g3">
+        <div class="card accent-teal"><h4>Key concept(s)</h4><p>The big transferable idea.</p></div>
+        <div class="card accent-mustard"><h4>Related concept(s)</h4><p>The subject-specific lens.</p></div>
+        <div class="card accent-orange"><h4>Global context</h4><p>The real-world setting.</p></div>
+        <div class="card accent-olive"><h4>Statement of inquiry</h4><p>The unit's core understanding.</p></div>
+        <div class="card accent-teal"><h4>Inquiry questions</h4><p>Factual, conceptual, debatable.</p></div>
+        <div class="card accent-mustard"><h4>ATL skills</h4><p>The skills you'll teach explicitly.</p></div>
+        <div class="card accent-orange"><h4>Content</h4><p>Your subject/national curriculum.</p></div>
+        <div class="card accent-olive"><h4>Assessment</h4><p>Tasks &amp; criteria, plus reflection.</p></div>
+      </div>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea</div>
+        <p>The unit planner isn't paperwork for its own sake &mdash; it's the conversation. It forces a team to agree on <em>why</em> a unit matters and <em>how</em> it connects, before worrying about activities.</p>
+      </div>
+
+      <p>A <strong>MYP coordinator</strong> supports this work: helping teams plan, ensuring the framework is applied consistently, and connecting the school to official IB requirements and updates. When you're unsure, the coordinator is your first stop.</p>
+    </section>
+
+    <!-- 15 -->
+    <section class="section" id="s15">
+      <div class="kicker"><span class="num">15</span> The practical shift</div>
+      <h2>What this means in the classroom</h2>
+      <p class="lead">You don't need to reinvent everything overnight. Most of what you already do still applies &mdash; the MYP reframes it. Here are the day-to-day shifts.</p>
+
+      <div class="grid g2">
+        <div class="card accent-teal"><h4>Plan from a concept, not just a topic</h4><p>Ask "what big idea is this <em>really</em> about?" before listing content.</p></div>
+        <div class="card accent-mustard"><h4>Write a statement of inquiry</h4><p>One sentence that captures the transferable understanding of the unit.</p></div>
+        <div class="card accent-orange"><h4>Choose a global context &mdash; and keep using it</h4><p>Let it shape your questions and tasks, not just your opening hook.</p></div>
+        <div class="card accent-olive"><h4>Name a few ATL skills and teach them</h4><p>Model them, practise them, reflect on them explicitly.</p></div>
+        <div class="card accent-teal"><h4>Use criteria and descriptors openly</h4><p>Share them with students so they know what quality looks like.</p></div>
+        <div class="card accent-mustard"><h4>Assess by best-fit, not by averaging</h4><p>Match work to the descriptor that fits overall.</p></div>
+        <div class="card accent-orange"><h4>Build in voice and choice</h4><p>Give students real, scaffolded decisions.</p></div>
+        <div class="card accent-olive"><h4>Connect to the real world &amp; community</h4><p>Make the "why does this matter?" visible.</p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>If you only changed one thing this term, change how you <em>start</em> a unit: lead with a concept and an inquiry question instead of a list of content. Almost everything else follows from that one move.</p>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="section" id="s16">
+      <div class="kicker"><span class="num">16</span> See it in action</div>
+      <h2>Quick classroom examples for each major idea</h2>
+      <p class="lead">Short, concrete snapshots of each big MYP idea &mdash; scan these to make the abstract feel real.</p>
+
+      <div class="grid g2">
+        <div class="card accent-teal"><span class="tag">Inquiry</span><h4>Geography</h4><p>Open with "Why do cities grow where they do?" Students investigate maps and data before any notes are given.</p></div>
+        <div class="card accent-mustard"><span class="tag">Concept</span><h4>Language &amp; Literature</h4><p>Frame a poetry unit around <em>perspective</em> so students transfer the idea to news media later.</p></div>
+        <div class="card accent-orange"><span class="tag">Global context</span><h4>Design</h4><p>Students design packaging through "globalization &amp; sustainability," weighing real environmental trade-offs.</p></div>
+        <div class="card accent-olive"><span class="tag">Interdisciplinary</span><h4>Science + I&amp;S</h4><p>A water-scarcity unit fuses scientific data with geographic and policy analysis.</p></div>
+        <div class="card accent-teal"><span class="tag">ATL</span><h4>Mathematics</h4><p>Explicitly teach a self-management skill (planning multi-step problems) before a complex task.</p></div>
+        <div class="card accent-mustard"><span class="tag">Agency</span><h4>Arts</h4><p>Students choose their medium and theme while the assessment criteria stay fixed.</p></div>
+        <div class="card accent-orange"><span class="tag">Action / Service</span><h4>PHE</h4><p>After a wellbeing unit, students design and lead a short activity break for younger peers.</p></div>
+        <div class="card accent-olive"><span class="tag">Assessment</span><h4>Any subject</h4><p>Give students the criterion descriptors first and have them self-assess a draft against them.</p></div>
+        <div class="card accent-teal"><span class="tag">Project</span><h4>MYP 5</h4><p>A student passionate about coding builds an accessibility app as their Personal Project, journaling the process.</p></div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="section" id="s17">
+      <div class="kicker"><span class="num">17</span> Avoid these traps</div>
+      <h2>Common misconceptions for new MYP teachers</h2>
+      <p class="lead">These are the misunderstandings that trip up almost everyone at first. Spotting them early saves a lot of confusion.</p>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"The MYP tells me exactly what content to teach."</div><div class="r"><span class="h">Reality</span>It's a framework. In most subjects you choose the content and embed your national/school curriculum inside it.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"The MYP has transdisciplinary themes and an Exhibition."</div><div class="r"><span class="h">Reality</span>Those are <strong>PYP</strong> features. The MYP uses <strong>Global Contexts</strong> and <strong>interdisciplinary</strong> learning, and culminates in the <strong>Personal Project</strong>.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"The criterion scores get averaged into the grade."</div><div class="r"><span class="h">Reality</span>You use <strong>best-fit</strong> judgement against descriptors; the total out of 32 converts to a 1&ndash;7 grade via IB boundaries.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"A score of 8 is like 100%."</div><div class="r"><span class="h">Reality</span>0&ndash;8 describes a <em>level of quality</em> against fixed descriptors &mdash; it is not a percentage.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"ATL skills are a separate subject to grade."</div><div class="r"><span class="h">Reality</span>ATL skills are taught explicitly across all subjects but aren't graded as their own subject &mdash; they support performance everywhere.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"The global context is just a lesson starter."</div><div class="r"><span class="h">Reality</span>It should run through the whole unit, shaping inquiry and application &mdash; not just appear on day one.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"Every unit must be interdisciplinary."</div><div class="r"><span class="h">Reality</span>Most units are single-subject. The requirement is <strong>at least one</strong> interdisciplinary unit per year.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"Service/action must be a big event."</div><div class="r"><span class="h">Reality</span>It can be small and varied &mdash; including reflection, dialogue, and relationship-building, not only large projects.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"Inquiry means I stop teaching directly."</div><div class="r"><span class="h">Reality</span>Inquiry includes direct instruction, modelling, and clear guidance &mdash; it's structured, not hands-off.</div></div>
+
+      <div class="myth"><div class="m"><span class="h">Myth</span>"eAssessment is compulsory."</div><div class="r"><span class="h">Reality</span>It's optional &mdash; but it's the only route to an <strong>IB-validated</strong> MYP Certificate.</div></div>
+    </section>
+
+    <!-- 18 -->
+    <section class="section" id="s18">
+      <div class="kicker"><span class="num">18</span> The vocabulary</div>
+      <h2>Key terminology glossary</h2>
+      <p class="lead">A quick-reference list of the terms you'll hear most often. Keep it handy for your first few months.</p>
+
+      <dl class="glossary">
+        <dt>Approaches to Learning (ATL)</dt><dd>The five skill categories (communication, social, self-management, research, thinking) that help students "learn how to learn."</dd>
+        <dt>Best-fit</dt><dd>Judging work against the descriptor it matches <em>overall</em>, rather than checking off every word.</dd>
+        <dt>Command terms</dt><dd>Defined instruction words (analyse, evaluate, justify…) that specify what a task requires.</dd>
+        <dt>Community Project</dt><dd>A student-directed, service-focused project, usually in Years 3 or 4, often done in groups.</dd>
+        <dt>Conceptual understanding</dt><dd>Grasp of a transferable big idea that can move across topics and subjects.</dd>
+        <dt>Criterion-related assessment</dt><dd>Judging work against published standards, not against other students.</dd>
+        <dt>eAssessment</dt><dd>The IB's optional external assessment (on-screen exams + ePortfolios) leading to an IB-validated MYP Certificate.</dd>
+        <dt>Global context</dt><dd>One of six real-world settings that give a unit relevance and purpose.</dd>
+        <dt>Interdisciplinary learning</dt><dd>Integrating two+ subject groups to build new, combined understanding (≥1 unit per year).</dd>
+        <dt>International-mindedness</dt><dd>The disposition to understand and respect other cultures and perspectives.</dd>
+        <dt>Key concept</dt><dd>One of 16 broad, interdisciplinary big ideas shared across the programme.</dd>
+        <dt>Learner Profile</dt><dd>The IB's ten attributes describing the kind of learner all programmes aim to develop.</dd>
+        <dt>Moderation</dt><dd>The IB's check of sampled work to keep grades comparable across schools.</dd>
+        <dt>MYP coordinator</dt><dd>The person who leads MYP implementation and is your go-to for guidance.</dd>
+        <dt>Personal Project</dt><dd>The required, independent, self-directed culminating project in the final year (MYP 5).</dd>
+        <dt>Related concept</dt><dd>A subject-specific concept that deepens a key concept within one discipline.</dd>
+        <dt>Service as Action</dt><dd>The MYP's approach to meaningful action and service arising from learning.</dd>
+        <dt>Standardization</dt><dd>Teachers aligning their judgements within a school so marking is consistent.</dd>
+        <dt>Statement of inquiry</dt><dd>The single sentence that expresses a unit's core transferable understanding (concept + context).</dd>
+        <dt>Subject groups</dt><dd>The eight required areas of MYP study.</dd>
+        <dt>Unit planner</dt><dd>The shared document that captures the design of an MYP unit.</dd>
+      </dl>
+    </section>
+
+    <!-- 19 -->
+    <section class="section" id="s19">
+      <div class="kicker"><span class="num">19</span> Looking ahead</div>
+      <h2>MYP 2026 and upcoming changes</h2>
+      <p class="lead">The MYP is being refreshed. This section separates what is <strong>in effect now</strong> from what is <strong>still in development</strong> &mdash; and flags where details are not yet final.</p>
+
+      <div class="callout note">
+        <div class="label"><span class="ic">!</span> Read this carefully</div>
+        <p>The big upcoming change ("Enhancing the MYP") is still being finalized as this guide is written. Anything marked <span class="pill upcoming">In development</span> or <span class="pill tbc">To be confirmed</span> should be verified against <strong>official IB sources</strong> before you act on it. Dates in particular have been reported differently in different places.</p>
+      </div>
+
+      <h3>In effect now <span class="pill current">Current</span></h3>
+      <ul>
+        <li>The MYP's current model &mdash; eight subject groups, 16 key concepts + related concepts, six global contexts, ATL, service as action, interdisciplinary learning, and criterion-related assessment &mdash; remains in place.</li>
+        <li>Current MYP regulations and assessment procedures (the "MYP 2026" documents) govern programmes today.</li>
+        <li>A number of subject guides have been refreshed for recent first-teaching cycles, with the usual one-year transition windows.</li>
+        <li>The gradual move toward more on-screen eAssessment continues.</li>
+      </ul>
+
+      <h3>Enhancing the MYP <span class="pill upcoming">In development</span></h3>
+      <p>The IB ran a <strong>beta trial in 2025</strong> of a reviewed MYP, and its own beta materials describe the enhanced programme as scheduled for <strong>full release in 2027</strong>. The stated goals are to make the MYP <em>easier for educators, more flexible for schools, and better for learners</em>. Proposed elements include:</p>
+
+      <div class="grid g2">
+        <div class="card accent-teal"><h4>Clearer, condensed aims</h4><p>The programme's aims reframed around foundational themes such as knowledge &amp; transfer, engagement, skills &amp; competencies, and self-directed learning.</p></div>
+        <div class="card accent-mustard"><h4>"Specified concepts"</h4><p>Key + related concepts proposed to merge into one list per subject group (schools may still add their own).</p></div>
+        <div class="card accent-orange"><h4>Community engagement in every unit</h4><p>A community link expected in each unit, with broader forms of engagement recognized.</p></div>
+        <div class="card accent-olive"><h4>More school flexibility</h4><p>Greater autonomy over scheduling and some assessment, especially in earlier years.</p></div>
+        <div class="card accent-teal"><h4>Better unit-planning guidance</h4><p>Simpler, clearer programme and subject guidance for teachers.</p></div>
+        <div class="card accent-mustard"><h4>A new digital platform</h4><p>A move from static PDF guides toward an interactive online platform ("IB Exchange").</p></div>
+      </div>
+
+      <h3>Reported sequencing <span class="pill tbc">To be confirmed</span></h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-date">2025</div><h4>Beta trial</h4><p>Schools trialled enhanced elements and gave feedback to the IB.</p></div>
+        <div class="tl-item up"><div class="tl-date">2027</div><h4>Full release / new guidance &amp; platform</h4><p>IB beta materials describe a 2027 full release; new guidance and the digital platform are associated with this point.</p></div>
+        <div class="tl-item up"><div class="tl-date">After release</div><h4>First teaching, then first new-model eAssessment</h4><p>Some practitioner summaries report first teaching and first eAssessment under the new model arriving in later years. <strong>These dates are not consistent across sources and must be confirmed by official IB guidance.</strong></p></div>
+      </div>
+
+      <div class="callout translation">
+        <div class="label"><span class="ic">→</span> Teacher Translation</div>
+        <p>You don't need to learn a "new MYP" to start teaching well now &mdash; the current framework is what's live. As a new teacher, focus on today's model, and let your <strong>coordinator</strong> filter official enhancement updates to your team as they're confirmed. Watch for changes to concept language, community engagement expectations, and unit-planning guidance.</p>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="section" id="s20">
+      <div class="kicker"><span class="num">20</span> Your starting point</div>
+      <h2>What should a new teacher focus on first?</h2>
+      <p class="lead">You can't absorb the whole programme at once &mdash; and you don't need to. Tick these off in roughly this order. (Your progress here is just a personal tracker; it isn't saved.)</p>
+
+      <div class="check-progress" id="checkCount">0 of 11 done</div>
+
+      <ul class="checklist" id="checklist">
+        <li><input type="checkbox" id="c1"><label for="c1"><b>Learn the overall shape</b> &mdash; eight subject groups, learner at the centre, framework-not-syllabus. (Section 1.)</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2"><b>Internalize the Learner Profile</b> &mdash; it's the "why" behind everything. (Section 5.)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3"><b>Read your own subject-group guide and its four criteria</b> &mdash; the most useful single document for you.</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4"><b>Study one complete unit planner</b> from a colleague to see how the pieces fit. (Section 14.)</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5"><b>Practise writing a statement of inquiry</b> (concept + global context). (Sections 6 &amp; 9.)</label></li>
+        <li><input type="checkbox" id="c6"><label for="c6"><b>Get familiar with the six global contexts</b> and choose one for a unit. (Section 8.)</label></li>
+        <li><input type="checkbox" id="c7"><label for="c7"><b>Pick a few ATL skills to teach explicitly</b> in your next unit. (Section 10.)</label></li>
+        <li><input type="checkbox" id="c8"><label for="c8"><b>Practise criterion-related, best-fit marking</b> &mdash; resist averaging. (Section 12.)</label></li>
+        <li><input type="checkbox" id="c9"><label for="c9"><b>Observe and collaborate</b> &mdash; watch experienced MYP colleagues and plan with them.</label></li>
+        <li><input type="checkbox" id="c10"><label for="c10"><b>Make your coordinator your first stop</b> for official guidance and updates.</label></li>
+        <li><input type="checkbox" id="c11"><label for="c11"><b>Be patient with yourself</b> &mdash; the MYP makes sense in layers; fluency comes with a few units, not a few days.</label></li>
+      </ul>
+
+      <div class="motif"><span>One step at a time</span></div>
+
+      <div class="callout big-idea">
+        <div class="label"><span class="ic">★</span> Big Idea to leave with</div>
+        <p>You already know how to teach. The MYP gives you a shared, thoughtful structure for <em>why</em> and <em>how</em> &mdash; concepts, contexts, skills, and inquiry &mdash; that turns good lessons into connected, meaningful learning. Start small, lean on your team, and let understanding build unit by unit.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<footer>
+  <div class="inner">
+    <h3>About this guide &amp; sources</h3>
+    <p class="small">This is an independent, educator-facing orientation guide. It is <strong>not</strong> an official IB publication and is not endorsed by or affiliated with the International Baccalaureate. It draws on publicly available information about the MYP, including IB programme materials. Where the original request referred to "transdisciplinary" learning, "transdisciplinary themes," and "the Exhibition," these have been presented using the correct MYP terminology &mdash; <strong>interdisciplinary learning</strong>, the <strong>six Global Contexts</strong>, and the <strong>MYP Projects</strong> &mdash; because the former belong to the IB Primary Years Programme.</p>
+    <p class="small">Programme details, terminology, and especially the "Enhancing the MYP" changes can evolve. Always verify against official IB sources &mdash; the IB website (ibo.org), My&nbsp;IB / the Programme Resource Centre, and your school's MYP coordinator &mdash; before making implementation decisions. Items labelled <em>"in development"</em> or <em>"to be confirmed"</em> were not final at the time of writing.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Reading progress bar */
+  var progress = document.getElementById('progress');
+  function updateProgress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+
+  /* Back to top */
+  var toTop = document.getElementById('toTop');
+  function updateToTop(){
+    if(window.scrollY > 600){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+  }
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  window.addEventListener('scroll', function(){ updateProgress(); updateToTop(); }, {passive:true});
+  updateProgress(); updateToTop();
+
+  /* TOC active-section highlighting */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var linkFor = {};
+  tocLinks.forEach(function(a){ linkFor[a.getAttribute('href').slice(1)] = a; });
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section.section'));
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          tocLinks.forEach(function(l){ l.classList.remove('active'); });
+          var link = linkFor[e.target.id];
+          if(link){ link.classList.add('active'); }
+        }
+      });
+    }, {rootMargin: '-45% 0px -50% 0px', threshold: 0});
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  /* Mobile TOC drawer */
+  var toc = document.getElementById('toc');
+  var toggle = document.getElementById('menuToggle');
+  var scrim = document.getElementById('scrim');
+  function closeDrawer(){
+    toc.classList.remove('open');
+    scrim.classList.remove('show');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  function openDrawer(){
+    toc.classList.add('open');
+    scrim.classList.add('show');
+    toggle.setAttribute('aria-expanded','true');
+  }
+  toggle.addEventListener('click', function(){
+    if(toc.classList.contains('open')){ closeDrawer(); } else { openDrawer(); }
+  });
+  scrim.addEventListener('click', closeDrawer);
+  toc.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.innerWidth <= 980){ closeDrawer(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeDrawer(); }
+  });
+
+  /* Checklist progress (in-memory only, not persisted) */
+  var checklist = document.getElementById('checklist');
+  var counter = document.getElementById('checkCount');
+  if(checklist){
+    var boxes = Array.prototype.slice.call(checklist.querySelectorAll('input[type="checkbox"]'));
+    function updateCount(){
+      var done = boxes.filter(function(b){ return b.checked; }).length;
+      counter.textContent = done + ' of ' + boxes.length + ' done';
+    }
+    boxes.forEach(function(b){
+      b.addEventListener('change', function(){
+        b.closest('li').classList.toggle('done', b.checked);
+        updateCount();
+      });
+    });
+    updateCount();
+  }
+})();
+</script>
+</body>
+</html>
